@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: {{ k8sNamespace }}
+  name: network-super-tools
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: network-super-tools
+    spec:
+      containers:
+      - name: network-super-tools
+        ports:
+          - containerPort: 80
+            name: http
+        image: villatresmil/nginxsuperpower:0.1
+        imagePullPolicy: IfNotPresent
