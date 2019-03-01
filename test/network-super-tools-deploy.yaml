@@ -1,7 +1,6 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  namespace: {{ k8sNamespace }}
   name: network-super-tools
 spec:
   replicas: 1
