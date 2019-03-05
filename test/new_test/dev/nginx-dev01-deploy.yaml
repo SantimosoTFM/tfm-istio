@@ -1,16 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: network-super-tools
+  name: nginx-dev01
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: network-super-tools
+        app: nginx-dev01
+        version: v1
     spec:
       containers:
-      - name: network-super-tools
+      - name: nginx-dev01
         ports:
           - containerPort: 80
             name: http

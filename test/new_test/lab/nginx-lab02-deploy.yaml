@@ -1,19 +1,19 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  namespace: {{ k8sNamespace }}
-  name: network-super-tools
+  name: nginx-lab02
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: network-super-tools
+        app: nginx-lab02
+        version: v1
     spec:
       containers:
-      - name: network-super-tools
+      - name: nginx-lab02
         ports:
           - containerPort: 80
             name: http
-        image: villatresmil/nginxsuperpower:0.1
+        image: villatresmil/nginxtools:0.1
         imagePullPolicy: IfNotPresent

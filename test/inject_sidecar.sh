@@ -1,1 +1,0 @@
-istioctl kube-inject -f network-super-tools-deploy.yaml -o k8s/network-super-tools-deploy-injected.yaml 
