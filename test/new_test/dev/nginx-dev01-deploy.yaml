@@ -1,7 +1,11 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+<<<<<<< HEAD:test/new_test/dev/nginx-dev01-deploy.yaml
   name: nginx-dev01
+=======
+  name: network-super-tools
+>>>>>>> d0ee82b65fdc04045c3c0105f2d18785bfea9bf9:test/network-super-tools-deploy.yaml
 spec:
   replicas: 1
   template:
@@ -15,5 +19,10 @@ spec:
         ports:
           - containerPort: 80
             name: http
+<<<<<<< HEAD:test/new_test/dev/nginx-dev01-deploy.yaml
         image: villatresmil/nginxtools:0.1
         imagePullPolicy: IfNotPresent
+=======
+        image: villatresmil/nginxsuperpower:0.1
+        imagePullPolicy: IfNotPresent
+>>>>>>> d0ee82b65fdc04045c3c0105f2d18785bfea9bf9:test/network-super-tools-deploy.yaml
