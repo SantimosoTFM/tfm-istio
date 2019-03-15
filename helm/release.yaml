@@ -1,5 +1,0 @@
-helm:
-  repo: istio.io/istio
-  chartVersion: 1.1.0
-  release:
-    name: tfms

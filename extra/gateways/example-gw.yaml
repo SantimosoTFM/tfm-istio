@@ -1,0 +1,96 @@
+#apiVersion: networking.istio.io/v1alpha3
+#kind: Gateway
+#metadata:
+#  name: apps-gw
+#  namespace: istio-system
+#spec:
+#  selector:
+#    istio: ingressgateway
+#  servers:
+#  - port:
+#      number: 80
+#      name: http2
+#      protocol: HTTP2
+#    hosts:
+#    - "*"
+#  - port:
+#      number: 8080
+#      name: http
+#      protocol: HTTP
+#    hosts:
+#    - "*"
+#    tls:
+#    #   httpsRedirect: true # if true sends 301 redirect for http requests
+#  - port:
+#      number: 443
+#      name: https
+#      protocol: HTTPS
+#    hosts:
+#    - "*"
+#    tls:
+#     mode: SIMPLE # enables HTTPS on this port
+#     serverCertificate: /etc/certs/servercert.pem
+#     privateKey: /etc/certs/privatekey.pem
+#
+#  - port:
+#      number: 31400
+#      name: tcp
+#      protocol: TCP
+#    hosts:
+#    - "*"
+#
+#  - port:
+#      number: 15029
+#      name: https-kiali
+#      protocol: HTTPS
+#    hosts:
+#    - "*"
+#    tls:
+#      mode: SIMPLE # enables HTTPS on this port
+#      serverCertificate: /etc/certs/servercert.pem
+#      privateKey: /etc/certs/privatekey.pem
+#
+#  - port:
+#      number: 15030
+#      name: https-prometheus
+#      protocol: HTTPS
+#    hosts:
+#    - "*"
+#    tls:
+#      mode: SIMPLE # enables HTTPS on this port
+#      serverCertificate: /etc/certs/servercert.pem
+#      privateKey: /etc/certs/privatekey.pem
+#
+#  - port:
+#      number: 15031
+#      name: https-grafana
+#      protocol: HTTPS
+#    hosts:
+#    - "*"
+#    tls:
+#      mode: SIMPLE # enables HTTPS on this port
+#      serverCertificate: /etc/certs/servercert.pem
+#      privateKey: /etc/certs/privatekey.pem
+#  
+#  - port:
+#      number: 15032
+#      name: https-tracing
+#      protocol: HTTPS
+#    hosts:
+#    - "*"
+#    tls:
+#      mode: SIMPLE # enables HTTPS on this port
+#      serverCertificate: /etc/certs/servercert.pem
+#      privateKey: /etc/certs/privatekey.pem
+#    
+#    # # OR using credentialName  
+#    # tls:
+#    #   mode: SIMPLE # enables HTTPS on this port
+#    #   credentialName: bookinfo-secret # fetches certs from Kubernetes secret
+#  # Example of TCP port
+#  # - port:
+#  #     number: 2379 # to expose internal service via external port 2379
+#  #     name: mongo
+#  #     protocol: MONGO
+#  #   hosts:
+#  #   - "*"
