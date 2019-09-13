@@ -15,7 +15,7 @@ gateways:
   enabled: true
 
   istio-egressgateway:
-    enabled: false
+    enabled: true
 
   istio-ingressgateway: 
     enabled: true
@@ -214,7 +214,7 @@ mixer:
       latencyThreshold: 100ms
     resources:
       requests:
-        cpu: 1000m
+        cpu: 100m
         memory: 1G
       limits:
         # It is best to do horizontal scaling of mixer using moderate cpu allocation.
@@ -261,7 +261,7 @@ pilot:
   # Resources for a small pilot install
   resources:
     requests:
-      cpu: 500m
+      cpu: 100m
       memory: 2048Mi
   env:
     PILOT_PUSH_THROTTLE: 100
@@ -321,9 +321,6 @@ nodeagent:
 grafana:
   enabled: true
   replicaCount: 1
-  image:
-    repository: grafana/grafana
-    tag: 6.1.6
   persist: false
   storageClassName: ""
   accessMode: ReadWriteMany
@@ -378,8 +375,6 @@ grafana:
 prometheus:
   enabled: true
   replicaCount: 1
-  hub: docker.io/prom
-  tag: v2.8.0
   retention: 6h
   nodeSelector: {}
   tolerations: []
@@ -410,14 +405,10 @@ tracing:
   podAntiAffinityTermLabelSelector: []
 
   jaeger:
-    hub: docker.io/jaegertracing
-    tag: 1.9
     memory:
       max_traces: 50000
 
   zipkin:
-    hub: docker.io/openzipkin
-    tag: 2
     probeStartupDelay: 200
     queryPort: 9411
     resources:
@@ -448,8 +439,6 @@ tracing:
 kiali:
   enabled: true
   replicaCount: 1
-  hub: quay.io/kiali
-  tag: v0.20
   contextPath: / # The root context path to access the Kiali UI.
   nodeSelector: {}
   podAntiAffinityLabelSelector: []
@@ -470,8 +459,6 @@ kiali:
 certmanager:
   enabled: false
   replicaCount: 1
-  hub: quay.io/jetstack
-  tag: v0.6.2
   resources: {}
   nodeSelector: {}
   tolerations: []
@@ -514,7 +501,7 @@ global:
   hub: docker.io/istio
 
   # Default tag for Istio images.
-  tag: 1.2.0
+  tag: 1.2.5
 
   # Comma-separated minimum per-scope logging level of messages to output, in the form of <scope>:<level>,<scope>:<level>
   # The control plane has different scopes depending on component, but can configure default log level across all components
